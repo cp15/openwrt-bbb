@@ -1,0 +1,4 @@
+mmcroot=/dev/mmcblk0p2 rw
+loadfdt=fatload mmc 0:1 ${fdtaddr} ${fdtfile}
+loaduimage=fatload mmc 0:1 ${kloadaddr} zImage
+uenvcmd=run loaduimage; run loadfdt; run mmcargs; bootz ${kloadaddr} - ${fdtaddr}
